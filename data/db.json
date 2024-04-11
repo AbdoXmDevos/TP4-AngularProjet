@@ -1,51 +1,21 @@
 {
   "products": [
     {
-      "id": "1",
-      "name": "MAD",
-      "price": "77000",
-      "checked": true
-    },
-    {
-      "name": "DELL",
-      "price": "1500",
-      "checked": false,
-      "id": "436e4w-"
-    },
-    {
       "name": "a",
       "price": 0,
-      "checked": true,
+      "checked": false,
       "id": "OyMdQb2"
     },
     {
-      "name": "b",
-      "price": "2500",
-      "checked": true,
-      "id": "0wuPy3M"
-    },
-    {
       "name": "14",
       "price": "15000",
-      "checked": true,
+      "checked": false,
       "id": "v6KI5WV"
-    },
-    {
-      "name": "14",
-      "price": "15000",
-      "checked": true,
-      "id": "ddds"
-    },
-    {
-      "name": "sss",
-      "price": "15000",
-      "checked": true,
-      "id": "v6KI5cdcsssssWV"
     },
     {
       "name": "vdvdf",
       "price": "15000",
-      "checked": true,
+      "checked": false,
       "id": "v6KIdd5WV"
     },
     {
@@ -59,6 +29,30 @@
       "price": "15000",
       "checked": true,
       "id": "dfdsf"
+    },
+    {
+      "name": "taa",
+      "price": "6900",
+      "checked": true,
+      "id": "oj0hFmS"
+    },
+    {
+      "name": "4taz",
+      "price": "1470",
+      "checked": false,
+      "id": "kpCzydG"
+    },
+    {
+      "name": "tagdfsdf",
+      "price": 0,
+      "checked": true,
+      "id": "c-oRQq2"
+    },
+    {
+      "name": "fdsvs",
+      "price": 0,
+      "checked": true,
+      "id": "x5jLF1n"
     }
   ]
 }

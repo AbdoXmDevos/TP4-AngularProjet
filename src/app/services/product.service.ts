@@ -7,27 +7,27 @@ import {Product} from "../model/product.model";
   providedIn: 'root'
 })
 export class ProductService {
-
+  private host : string = "http://localhost:3000";
   constructor(private http:HttpClient) {
 
   }
   public searchProducts(keyword : string ="",page : number=1,size : number =4){
     return this.http.get
-    (`http://localhost:3000/products?name_like=${keyword}&_page=${page}&_limit=${size}`, {observe:'response'});
+    (`${this.host}/products?name_like=${keyword}&_page=${page}&_limit=${size}`, {observe:'response'});
 
   }
   public checkProduct(p : Product):Observable<Product>{
-    return  this.http.patch<Product>(`http://localhost:3000/products/${p.id}`,
+    return  this.http.patch<Product>(`${this.host}/products/${p.id}`,
       {checked:!p.checked});
 
   }
   public deleteProduct(p : Product){
-    return  this.http.delete<any>(`http://localhost:3000/products/${p.id}`);
+    return  this.http.delete<any>(`${this.host}/products/${p.id}`);
 
   }
 
   saveProduct(product: Product):Observable<Product> {
-    return  this.http.post<Product>(`http://localhost:3000/products`, product);
+    return  this.http.post<Product>(`${this.host}/products`, product);
   }
   // public searchProducts(keyword : string,page : number ,size : number):Observable<Array<Product>>{
   //   return this.http.get<Array<Product>>(`http://localhost:3000/products?name_like=${keyword}&_page=${page}&_limit =${size}`);
@@ -35,12 +35,12 @@ export class ProductService {
   //
   // }
   getProductById(productId: number): Observable<Product> {
-    return this.http.get<Product>(`http://localhost:3000/products/${productId}`)
+    return this.http.get<Product>(`${this.host}/products/${productId}`)
 
   }
 
   updateProduct(product: Product):Observable<Product> {
-    return this.http.put<Product>(`http://localhost:3000/products/${product.id}`,product);
+    return this.http.put<Product>(`${this.host}/products/${product.id}`,product);
 
   }
 }

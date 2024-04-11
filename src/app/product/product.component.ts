@@ -5,6 +5,8 @@ import {Product} from "../model/product.model";
 import {Observable} from "rxjs";
 import {RouterModule} from "@angular/router";
 import { Router } from '@angular/router';
+import {AppStateService} from "../services/app-state.service";
+import {AppHttpInterceptor} from "../services/app-http.interceptor";
 
 @Component({
   selector: 'app-product',
@@ -23,8 +25,7 @@ export class ProductComponent implements OnInit{
   pageSize: number=3;
   currentPage : number = 1;
   constructor(private productService :ProductService ,
-              private router : Router) {
-
+              private router : Router , public appStateService: AppStateService){
 
   }
   ngOnInit(): void {
@@ -33,20 +34,46 @@ export class ProductComponent implements OnInit{
   }
   searchProducts(){
 
-    this.productService.searchProducts(this.keyword,this.currentPage,this.pageSize)
+      this.productService.searchProducts(
+      this.appStateService.productState.keyword,
+      this.appStateService.productState.currentPage,
+      this.appStateService.productState.pageSize)
       .subscribe({
         next  : (resp) => {
-          this.products=resp.body as Product[];
+
+
+          //this.appStateService.productState.products=resp.body as Product[];
+          let products = resp.body as Product[];
           let totalProducts:number = parseInt(resp.headers.get('x-total-count')!);
+         // this.appStateService.productState.totalProducts = totalProducts;
           //console.log(totalProducts)
-          this.totalPages = Math.floor( totalProducts/ this.pageSize);
+          let totalPages =
+          this.appStateService.productState.totalPages = Math.floor( totalProducts/ this.appStateService.productState.pageSize);
           console.log(this.totalPages);
-          if(totalProducts % this.pageSize !=0){ // cad il ya le reste
-              this.totalPages=this.totalPages+1;
+          if(totalProducts % this.appStateService.productState.pageSize !=0){ // cad il ya le reste
+           //   this.appStateService.productState.totalPages=this.appStateService.productState.totalPages+1;
+            ++totalPages;
           }
+          this.appStateService.setPorductState({
+              products : products,
+            totalProducts : totalProducts,
+            totalPages : totalPages,
+            // donc une fois les donneés sont charggés
+            status : "LOADED"
+
+
+            }
+
+          )
         },
         error : err => {
           console.log(err)
+          this.appStateService.setPorductState({
+            status : "ERROR",
+            errorMessae : err
+
+
+          })
         }
       })
     //this.products$ = this.productService.getProduct(); // on peut ajouter .pipe() pour les erreurs
@@ -72,7 +99,8 @@ export class ProductComponent implements OnInit{
         //this.getProduct();
         // pour supprimer au niveau de frontend
 
-        this.products = this.products.filter(p=>p.id!=product.id);
+       //this.appStateService.productState.products = this.appStateService.productState.products.filter((p:any)=>p.id!=product.id);
+            this.searchProducts();
       }
 
     })
@@ -92,7 +120,7 @@ export class ProductComponent implements OnInit{
   // }
 
   handleGotoPage(page: number) {
-    this.currentPage = page;
+    this.appStateService.productState.currentPage = page;
     this.searchProducts();
   }
 
