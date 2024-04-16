@@ -1,4 +1,24 @@
 {
+  "users" : [{
+    "id": "user1",
+    "password": "MTIzNA==",
+    "roles" : ["USER"],
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyMSIsImlhdCI6MTUxNjIzOTAyMiwiZXhwIjoxNTE2MjM5MDIyLCJpc3MiOiJodHRwOi8vbG9jYWxvc3Q6ODg4OC9hdXRoIiwibmJmIjoxNTE2MjM5MDIyLCJmaXJzdG5hbWUiOiJUYWhhIiwibGFzdG5hbWUiOiJNYW5uYSIsImVtYWlsIjoidGFoYUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iXX0.kiuK9R-c6gLdZD5iIuSx_GhRiYdXMAZLZhlRZvgwzNI"
+  },
+    {
+      "id": "user2",
+      "password": "MTIzNA==",
+      "roles" : ["USER"],
+      "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyMiIsImlhdCI6MTUxNjIzOTAyMiwiZXhwIjoxNTE2MjM5MDIyLCJpc3MiOiJodHRwOi8vbG9jYWxvc3Q6ODg4OC9hdXRoIiwibmJmIjoxNTE2MjM5MDIyLCJmaXJzdG5hbWUiOiJUYWhhIiwibGFzdG5hbWUiOiJNYW5uYSIsImVtYWlsIjoidGFoYUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iXX0.o0F-LiGLw0mj6wWwqGFtROIMvjEqds4slJyYbxdwPPY"
+    }
+  ,
+    {
+      "id": "admin",
+      "password": "MTIzNA==",
+      "roles" : ["USER","ADMIN"],
+      "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTUxNjIzOTAyMiwiZXhwIjoxNTE2MjM5MDIyLCJpc3MiOiJodHRwOi8vbG9jYWxvc3Q6ODg4OC9hdXRoIiwibmJmIjoxNTE2MjM5MDIyLCJmaXJzdG5hbWUiOiJUYWhhIiwibGFzdG5hbWUiOiJNYW5uYSIsImVtYWlsIjoidGFoYUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iXX0.LEiolBCIRyEaCDfTtGYrV1wk0fd0-0O5fN0jcKqH82w"
+    }
+  ],
   "products": [
     {
       "name": "a",
@@ -39,7 +59,7 @@
     {
       "name": "4taz",
       "price": "1470",
-      "checked": false,
+      "checked": true,
       "id": "kpCzydG"
     },
     {
