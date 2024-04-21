@@ -5,8 +5,6 @@ import {Product} from "../model/product.model";
   providedIn: 'root'
 })
 export class AppStateService {
-
-
   public productState: any = {
     products: [],
     keyword: "",
@@ -16,8 +14,6 @@ export class AppStateService {
     totalProduct: 0,
     status: "",
     errorMessae: ""
-
-
   }
   public authState :any={
     isAuthentificated : false,

@@ -1,9 +1,8 @@
-import {Component, OnInit, signal} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Router} from "@angular/router";
 import {AuthService} from "../services/auth.service";
 import {AppStateService} from "../services/app-state.service";
-import {error} from "@angular/compiler-cli/src/transformers/util";
 
 @Component({
   selector: 'app-login',
@@ -13,6 +12,8 @@ import {error} from "@angular/compiler-cli/src/transformers/util";
 export class LoginComponent implements OnInit{
   formLogin! : FormGroup;
   errorMessage : undefined;
+  username:undefined
+  password:undefined
   constructor(private fb : FormBuilder,
               private router : Router,
               private  auth : AuthService,
@@ -21,16 +22,12 @@ export class LoginComponent implements OnInit{
   }
   ngOnInit(): void {
     this.formLogin = this.fb.group({
-      username: [''], // Définir le contrôle du champ username
-      password: [''] // Définir le contrôle du champ password
+      username :this.fb.control(""),
+      password :this.fb.control("")
     });
   }
 
   handleLogin(){
-    // console.log(this.formLogin.value);
-    // if(this.formLogin.value.username=="admin" && this.formLogin.value.password=="admin" ){
-    //   this.router.navigateByUrl("/admin")
-    // }
     let username = this.formLogin.value.username
     let password = this.formLogin.value.password
     this.auth.login(username,password).

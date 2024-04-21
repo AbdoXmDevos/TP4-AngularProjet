@@ -1,12 +1,9 @@
-import {Component, OnInit, signal} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {Component, OnInit} from '@angular/core';
 import {ProductService} from "../services/product.service";
 import {Product} from "../model/product.model";
-import {Observable} from "rxjs";
-import {RouterModule} from "@angular/router";
 import { Router } from '@angular/router';
 import {AppStateService} from "../services/app-state.service";
-import {AppHttpInterceptor} from "../services/app-http.interceptor";
+
 
 @Component({
   selector: 'app-product',
@@ -127,4 +124,5 @@ export class ProductComponent implements OnInit{
   handleEdit(p: Product) {
     this.router.navigateByUrl(`/admin/editProduct/${p.id}`)
   }
+
 }

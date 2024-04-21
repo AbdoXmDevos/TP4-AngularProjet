@@ -24,7 +24,7 @@ export class AuthService {
           username : decodeJwT.sub,
           roles : decodeJwT.roles,
           token : user.token ,
-        });
+        })
       return Promise.resolve(true)
     }else {
       return Promise.reject("bad cre")
