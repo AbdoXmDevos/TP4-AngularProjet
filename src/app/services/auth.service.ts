@@ -11,7 +11,7 @@ export class AuthService {
 
   constructor(private http : HttpClient,private appState : AppStateService) { }
   async login(username : string , password : string){
-    let user:any = await firstValueFrom(this.http.get("http://localhost:3000/users/"+username));
+    let user:any = await firstValueFrom(this.http.get("http://localhost:3020/users/"+username));
     // interdit de faire c en frontEnd
     console.log(password)
     console.log(user.password)
